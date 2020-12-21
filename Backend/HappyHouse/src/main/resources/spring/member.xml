@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.test.dao.MemberDao">
+
+	<select id="login" parameterType="member" resultType="member">
+		select *
+		from member
+		where userid = #{userid}
+		and userpwd = #{userpwd}
+		and
+		usertype != -1
+	</select>
+
+	<select id="searchGoogle" parameterType="string"
+		resultType="member">
+		select *
+		from member
+		where email = #{gemail} and usertype = 0
+	</select>
+
+	<select id="googleSignup" parameterType="map"
+		resultType="member">
+		insert into member values (
+		#{gemail}, #{gusername}, 0, #{gemail}, 0 ,0, now()
+		)
+	</select>
+
+	<insert id="signup" parameterType="member">
+		insert into member values (
+		#{userid}, #{username}, #{userpwd}, #{email}, #{phone} ,0, now()
+		)
+	</insert>
+
+	<update id="deleteMember" parameterType="map">
+		update member set
+		usertype = #{cnt} where userid = #{userid}
+	</update>
+
+	<!-- <update id="updateMyInfo" parameterType="String"> update member set 
+		userpwd = #{userpwd} where userid = #{userid} </update> -->
+
+	<update id="updateMyInfo" parameterType="map">
+		update member set
+		userpwd = #{userpwd} where userid = #{userid}
+	</update>
+
+	<select id="listMember" resultType="member">
+		select *
+		from member
+		where
+		usertype = 0
+
+	</select>
+
+	<select id="searchMemberById" parameterType="map"
+		resultType="member">
+		select *
+		from member
+		where userid like CONCAT('%',
+		#{searchWord}, '%') and usertype = 0
+	</select>
+
+	<select id="searchMemberByName" parameterType="map"
+		resultType="member">
+		select *
+		from member
+		where username like CONCAT('%',
+		#{searchWord}, '%') and usertype = 0
+	</select>
+	<select id="searchMember" parameterType="map"
+		resultType="member">
+		select *
+		from member
+		where userid like CONCAT('%',
+		#{searchWord}, '%') or username like
+		CONCAT('%', #{searchWord}, '%')
+		and usertype = 0
+	</select>
+	<select id="searchEmail" parameterType="map" resultType="member">
+		select *
+		from member
+		where email = #{email} and userid = #{userid} and usertype
+		= 0
+	</select>
+	<update id="changePWUpdate" parameterType="map">
+		update member set
+		userpwd = #{userpwd} where email = #{email} and usertype = 0
+	</update>
+</mapper>

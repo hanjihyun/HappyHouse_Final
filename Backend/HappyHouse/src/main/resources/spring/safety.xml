@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.test.dao.SafetyDao">
+
+   <select id="getPoliceOffice" parameterType="string" resultType="policeoffice">
+       select * from policeoffice
+      where dong = #{dong}
+      order by gugun
+    </select>
+
+   <select id="getFireStation" parameterType="string" resultType="firestation">
+       select * from firestation
+      where dong = #{dong}
+      order by gugun
+    </select>
+    
+    <select id="getSafetyCenter" parameterType="string" resultType="safetycenter">
+       select * from safetycenter
+      where dong = #{dong}
+      order by gugun
+    </select>
+    
+    <select id="getShelter" parameterType="string" resultType="shelter">
+       select * from shelter
+      where dong = #{dong}
+      order by gugun
+    </select>
+    
+    <select id="getSafetyBell" parameterType="string" resultType="safetybell">
+       select * from safetybell
+      where dong = #{dong}
+      order by gugun
+    </select>
+	<select id="getTotalCnt" parameterType="string" resultType="safelevel">
+       select * from safelevel
+      where dong = #{dong}
+      order by totalcnt
+    </select>
+</mapper>

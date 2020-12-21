@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.test.dao.NoticeDao">
+
+	<select id="listNotice" parameterType="map" resultType="notice">
+		select *
+		from notice
+		<if test="searchWord != null and searchWord != ''">
+		<choose>
+			<when test="searchKey == 'title'">
+				where title like CONCAT('%', #{searchWord}, '%')
+			</when>
+			<when test="searchKey == 'writer'">
+				where writer like CONCAT('%', #{searchWord}, '%')
+			</when>
+			<!--  ${}-컬럼 = #{}-값 -->
+			<when test="searchKey != 'title'">
+				where ${searchKey} = #{searchWord}
+			</when>
+		</choose>
+		</if>
+		order by noticeNo desc
+		limit #{start}, #{spp}
+	</select>
+
+	<select id="detailNotice" parameterType="int"
+		resultType="notice">
+		select *
+		from notice
+		where noticeNo = #{noticeNo}
+	</select>
+
+	<delete id="deleteNotice" parameterType="map">
+		delete from notice where noticeNo = #{noticeNo} and writer = #{userid}
+	</delete>
+
+	<update id="modifyNotice" parameterType="map">
+		update notice set content = #{content} where title = #{title}
+	</update>
+
+	<insert id="writeNotice" parameterType="map">
+		insert into notice (title, writer, content, date)
+		values(#{title}, #{writer}, #{content}, now())
+	</insert>
+
+<!-- 	<select id="searchNoticeByTitle" parameterType="map" -->
+<!-- 		resultType="notice"> -->
+<!-- 		select * -->
+<!-- 		from notice -->
+<!-- 		where title like CONCAT('%', #{searchWord}, '%') -->
+<!-- 	</select> -->
+
+<!-- 	<select id="searchNoticeByWriter" parameterType="map" -->
+<!-- 		resultType="notice"> -->
+<!-- 		select * -->
+<!-- 		from notice -->
+<!-- 		where writer like CONCAT('%', #{searchWord}, '%') -->
+<!-- 	</select> -->
+<!-- 	<select id="searchNotice" parameterType="map" -->
+<!-- 		resultType="notice"> -->
+<!-- 		select * -->
+<!-- 		from notice -->
+<!-- 		where title like CONCAT('%', #{searchWord}, '%') or writer like CONCAT('%', -->
+<!-- 		#{searchWord}, '%') -->
+<!-- 	</select> -->
+	
+	<select id="getTotalCount" parameterType="map" resultType="int">
+		select count(NOTICENO)
+		from notice
+		<if test="searchWord != null and searchWord != ''">
+		<choose>
+			<when test="searchKey == 'title'">
+				where writer like CONCAT('%', #{searchWord}, '%')
+			</when>
+			<when test="searchKey == 'writer'">
+				where writer like CONCAT('%', #{searchWord}, '%')
+			</when>
+			<!--  ${}-컬럼 = #{}-값 -->
+			<when test="searchKey != 'title'">
+				where ${searchKey} = #{searchWord}
+			</when>
+		</choose>
+		</if>
+	</select>
+</mapper>

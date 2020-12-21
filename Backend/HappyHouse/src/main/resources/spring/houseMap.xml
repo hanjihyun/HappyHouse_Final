@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.test.dao.HouseMapDao">
+
+	<select id="getSido" resultType="sidoGugun">
+		 select left(sido_code, 2) sido_code, sido_name
+      from sidocode
+      order by sido_code
+	</select>
+
+	<select id="getGugunInSido" parameterType="string" resultType="sidoGugun">
+		select left(gugun_code, 5) gugun_code, gugun_name
+      from guguncode
+      where left(gugun_code, 2) = #{sido}
+      order by gugun_code
+	</select>
+	<select id="getDongInGugun" parameterType="string" resultType="houseInfo">
+		 select distinct dong, code
+      from houseinfo
+      where code = #{gugun}
+      order by dong
+
+	</select>
+	 <select id="getAptInDong" parameterType="string" resultType="houseInfo">
+      select no, dong, aptname, code, jibun
+      from houseinfo
+      where dong = #{dong}
+      order by aptname
+   </select>
+	
+	<select id="getAptDealInfo" parameterType="map" resultType="housedealDto">
+		 select no, dong, aptname, code, trim(dealAmount) dealAmount, buildYear, dealYear, dealMonth, dealMonth, dealDay, area, floor
+         from housedeal
+      where dong = #{dong}
+      order by aptname
+      limit #{start}, #{spp}
+    </select>
+	 <select id="getDetailHouse" parameterType="string" resultType="housedealDto">
+         select *
+         from housedeal
+         where no = #{no}
+   </select>
+   <select id="salesCnt" resultType="int">
+		select count(*) from housedeal;
+	</select>
+	<select id="getTotalCount" parameterType="map" resultType="int">
+		select count(*)
+		from housedeal
+		where dong = #{dong}
+	</select>
+</mapper>

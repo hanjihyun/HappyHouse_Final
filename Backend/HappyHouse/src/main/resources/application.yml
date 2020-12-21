@@ -1,0 +1,22 @@
+
+server:
+  port: 8001
+  servlet:
+    context-path: /happyHouse
+    
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+ 
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/happyHouse?serverTimezone=UTC&useSSL=false&useUniCode=yes&characterEncoding=UTF-8&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: ssafy
+    
+mybatis:
+  config-location: classpath:/spring/mybatisConfig.xml
+  
+      

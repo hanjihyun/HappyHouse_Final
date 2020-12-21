@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+	
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.ssafy.test.dto.MemberDto" alias="member" />
+		<typeAlias type="com.ssafy.test.dto.NoticeDto" alias="notice" />
+		<typeAlias type="com.ssafy.test.dto.SidoGugunCodeDto" alias="sidoGugun" />
+		<typeAlias type="com.ssafy.test.dto.HouseInfoDto" alias="houseInfo" />
+		<typeAlias type="com.ssafy.test.dto.HouseDealDto" alias="housedealDto" />
+		<typeAlias type="com.ssafy.test.dto.HospitalInfoDto" alias="hospitalInfo" />
+		<typeAlias type="com.ssafy.test.dto.MedicalCenterDto" alias="medicalCenter" />
+		<typeAlias type="com.ssafy.test.dto.QnADto" alias="qna" />
+		<typeAlias type="com.ssafy.test.dto.Favorite" alias="favorite" />
+		<typeAlias type="com.ssafy.test.dto.CCTV" alias="cctv" />
+		<typeAlias type="com.ssafy.test.dto.PoliceOffice" alias="policeoffice" />
+	    <typeAlias type="com.ssafy.test.dto.FireStation" alias="firestation" />
+	    <typeAlias type="com.ssafy.test.dto.SafetyBell" alias="safetybell" />
+	    <typeAlias type="com.ssafy.test.dto.SafetyCenter" alias="safetycenter" />
+	    <typeAlias type="com.ssafy.test.dto.Shelter" alias="shelter" />
+		<typeAlias type="com.ssafy.test.dto.SafeLevel" alias="safelevel" />
+	</typeAliases>
+	<mappers>
+		<mapper resource="spring/coronaMap.xml" />
+		<mapper resource="spring/houseMap.xml" />
+		<mapper resource="spring/member.xml" />
+		<mapper resource="spring/notice.xml" />
+		<mapper resource="spring/qna.xml" />
+		<mapper resource="spring/favorite.xml" />
+		<mapper resource="spring/cctv.xml" />
+		<mapper resource="spring/safety.xml" />
+		
+	</mappers>
+
+</configuration>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

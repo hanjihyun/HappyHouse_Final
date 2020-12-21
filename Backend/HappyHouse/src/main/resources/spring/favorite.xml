@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.test.dao.FavoriteDao">
+
+	<select id="favoriteList" parameterType="map" resultType="favorite">
+		select *
+		from favorite 
+		where
+		<if test="searchWord != null and searchWord != ''">
+		<choose>
+			<when test="searchKey == 'dong'"> 
+				 dong like CONCAT('%', #{searchWord}, '%') and
+			</when>
+			<when test="searchKey == 'aptName'">
+				aptName like CONCAT('%', #{searchWord}, '%') and
+			</when>
+			<!--  ${}-컬럼 = #{}-값 -->
+			<when test="searchKey != 'dong'">
+				${searchKey} = #{searchWord} and
+			</when>
+		</choose>
+		</if>
+		userid = #{userid}
+		order by no desc
+		limit #{start}, #{spp} 
+	</select>
+	<select id="getTotalCount" parameterType="map" resultType="int">
+		select count(no)
+		from favorite where
+		<if test="searchWord != null and searchWord != ''">
+		<choose>
+			<when test="searchKey == 'dong'">
+				 dong like CONCAT('%', #{searchWord}, '%') and
+			</when>
+			<when test="searchKey == 'aptName'">
+				 aptName like CONCAT('%', #{searchWord}, '%') and
+			</when>
+			<!--  ${}-컬럼 = #{}-값 -->
+			<when test="searchKey != 'dong'">
+				 ${searchKey} = #{searchWord} and
+			</when>
+		</choose>
+		</if>
+		 userid = #{userid}
+	</select>
+	
+	<select id="searchdetail" parameterType="string"
+		resultType="housedealDto">
+		select *
+		from housedeal
+		where no = #{no}
+	</select>
+
+	<delete id="favoriteDelete" parameterType="map">
+		delete from favorite where no = #{no} and userid = #{userid}
+	</delete>
+
+<!-- 	<update id="modifyNotice" parameterType="map"> -->
+<!-- 		update notice set content = #{content} where title = #{title} -->
+<!-- 	</update> -->
+
+	<insert id="addFavorite" parameterType="map">
+		insert into favorite
+		values(#{no}, #{userid}, #{dong}, #{aptName},#{code},#{dealAmount},#{buildYear},#{dealYear},#{dealMonth},#{dealDay},#{area},#{floor},#{jibun})
+	</insert>
+
+<!-- 	<select id="searchfavoriteByDong" parameterType="map" -->
+<!-- 		resultType="favorite"> -->
+<!-- 		select * -->
+<!-- 		from favorite -->
+<!-- 		where dong like CONCAT('%', #{searchWord}, '%') and userid = #{userid} -->
+<!-- 	</select> -->
+
+<!-- 	<select id="searchfavoriteByApt" parameterType="map" -->
+<!-- 		resultType="favorite"> -->
+<!-- 		select * -->
+<!-- 		from favorite -->
+<!-- 		where aptName like CONCAT('%', #{searchWord}, '%') and userid = #{userid} -->
+<!-- 	</select> -->
+<!-- 	<select id="searchfavorite" parameterType="map" -->
+<!-- 		resultType="favorite"> -->
+<!-- 		select * -->
+<!-- 		from favorite -->
+<!-- 		where dong like CONCAT('%', #{searchWord}, '%') or aptName like CONCAT('%', #{searchWord}, '%') and userid = #{userid} -->
+<!-- 	</select> -->
+</mapper>
