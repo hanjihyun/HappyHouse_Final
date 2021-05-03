@@ -39,6 +39,21 @@
 
 ![%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%202.png](%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%202.png)
 
+## 🏷️HappyHouse 기본기능
+
+- 날씨 제공 - 네이버 날씨 데이터
+- 부동산 실시간 뉴스 제공 - 네이버 부동산 뉴스 데이터
+- 회원 관리
+- 로그인 / 로그아웃
+- 회원가입, 비밀번호 찾기시 이메일 인증 서비스 제공
+- 회원 정보 수정 서비스 제공
+- 회원 탈퇴 서비스 제공
+- 게시판
+- 매매정보 : 공공데이터의 아파트 매매정보, 위치 정보 제공
+- Q&A : 사이트에 관한 Q&A 서비스 제공
+
+    - 공지사항 : 사이트 공지 제공
+
 ## 🏷️HappyHouse 주요기능
 
 ### 회원가입/ 로그인
@@ -61,32 +76,22 @@
 ### CCTV 설치 지역
 
 - CCTV 설치 위치 제공 (google map)
-- CCTV 영상 제공 (국토교통부 API)
 
 ![%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%206.png](%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%206.png)
+
+- CCTV 영상 제공 (국토교통부 API)
+    - 해당 위치의 씨씨티비 영상 정보 제공
 
 ![%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%207.png](%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%207.png)
 
 ### 안전 지역
 
 - 안전 관련 데이터 통계를 통한 등급 표시
+    - 동단위로 선택할 수 있으며 색으로 알아보기 쉽게 등급 표시
+    - 지도 위 표시 되는 아이콘의 빨간색은 위험, 노란색은 경고, 파란색은 주의 , 초록색은 안전 단계
 
 ![%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%208.png](%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%208.png)
 
 ## 🙂팀원 소개
 
 ![%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%209.png](%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%209.png)
-
-## 한지현
-
-- email: gksgpals96@naver.com
-- 역할: 조장, 프론트엔드 & 백엔드
-- 부동산 매매 정보 API, 부동산 뉴스 크롤링, 날씨 API, CCTV 위치 및 영상 제공, 비밀번호 찾기
-
-![%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/jpg.jpg](%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/jpg.jpg)
-
-## 윤수민
-
-- email: sumin9497@gmail.com
-- 역할: 발표, 프론트엔드& 백엔드
-- 소셜로그인, 회원가입, CCTV 영상 제공, 안전정보 API, 안전 등급 통계
