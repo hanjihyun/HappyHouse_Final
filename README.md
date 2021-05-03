@@ -1,31 +1,92 @@
-# HappyHouse
--날씨 제공
--부동산 실시간 뉴스 제공
- 
-회원 관리
--기존 로그인 기능에서  구글 API를 이용하여 구글 로그인 구현
--회원가입, 비밀번호 찾기시 이메일 인증 서비스 제공
--회원 정보 수정 서비스 제공
--회원 탈퇴 서비스 제공
+# 🏘️HappyHouse
 
-게시판
--매매정보 게시판 : 공공데이터의 아파트 매매정보, 위치 정보 제공
--Q&A 게시판 : 사이트에 관한 Q&A 서비스 제공
+### 여성, 노인, 어린이가 있는 가정을 대상으로 한 안전하고 합리적인 내 집 구하기
 
-안전 데이터
---CCTV 위치 제공
-시,구군,동을 선택하면 해당 지역에 설치된 cctv위치를 지도에 시각적으로 표시
-리스트에는 소재지 주소, 설치 날짜, 영상 보관일자, 기준일자 제공
+## HappyHouse 소개
 
---CCTV 영상 제공
-해당 위치의 씨씨티비 영상을 실시간으로 정보 제공
+- 범죄가 늘어나는 요즘 안전한 지역에 집을 구하고 싶은 사람들을 위한 사이트
+- 자기 기준에서 안전하고 합리적인 내집 마련
+- 여성, 노인, 어린이가 있는 가정을 잠재적 대상으로 한 사이트
+- 다양한 안전지역을 확인할 수 있는 카테고리 제공
 
---안전 지역 등급 제공
-대피소, 소방서, 경찰서, 안전비상벨, 안전 센터의 데이터를 수집한뒤 집계하여 안전 지역 등급을 나눠 정보 제공
-동단위로 선택할 수 있으며 색으로 알아보기 쉽게 등급 표시
-(지도 위 표시 되는 아이콘의 빨간색은 위험단계 노란색은 경고 단계 파란색은 주의 단계 초록색은 안전 단계)
+## 🗓️개발 기간
 
+### 2020.11.19 ~ 2020.11.26 (8 days)
 
-# Member
-- 윤수민 
-- 한지현
+![%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled.png](%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled.png)
+
+## 🔧**Tech Stack**
+
+![%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%201.png](%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%201.png)
+
+- Spring Boot(Backend / Frontend) - 2.1.4 version
+- Vue.js(Frontend 일부 -  Q&A 게시판) - 2.6.12 version
+- Mysql
+- Google developers(Google map)
+- 공공데이터 포털(아파트 주택 매매정보)
+- 국토교통부(CCTV영상 데이터 & 위치)
+- 생활안전지도(대피소, 소방서, 경찰서, 안전비상벨, 안전센터 데이터)
+
+## 📊ERD Diagram
+
+---
+
+![%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f.png](%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f.png)
+
+## 📊Usecase Diagram
+
+---
+
+![%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%202.png](%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%202.png)
+
+## 🏷️HappyHouse 주요기능
+
+### 회원가입/ 로그인
+
+- 소셜 로그인 (구글)
+- 회원가입/ 비밀번호 변경 시 이메일을 통한 인증
+
+![%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%203.png](%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%203.png)
+
+![%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%204.png](%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%204.png)
+
+![%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%205.png](%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%205.png)
+
+### 부동산 매매 정보
+
+- 지역별 부동산 매매 정보 제공
+
+![%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/_(1).png](%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/_(1).png)
+
+### CCTV 설치 지역
+
+- CCTV 설치 위치 제공 (google map)
+- CCTV 영상 제공 (국토교통부 API)
+
+![%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%206.png](%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%206.png)
+
+![%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%207.png](%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%207.png)
+
+### 안전 지역
+
+- 안전 관련 데이터 통계를 통한 등급 표시
+
+![%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%208.png](%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%208.png)
+
+## 🙂팀원 소개
+
+![%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%209.png](%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/Untitled%209.png)
+
+## 한지현
+
+- email: gksgpals96@naver.com
+- 역할: 조장, 프론트엔드 & 백엔드
+- 부동산 매매 정보 API, 부동산 뉴스 크롤링, 날씨 API, CCTV 위치 및 영상 제공, 비밀번호 찾기
+
+![%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/jpg.jpg](%F0%9F%8F%98%EF%B8%8FHappyHouse%20419df846d41848e6978e43395aa4386f/jpg.jpg)
+
+## 윤수민
+
+- email: sumin9497@gmail.com
+- 역할: 발표, 프론트엔드& 백엔드
+- 소셜로그인, 회원가입, CCTV 영상 제공, 안전정보 API, 안전 등급 통계
